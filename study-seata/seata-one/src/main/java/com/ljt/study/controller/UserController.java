@@ -1,8 +1,5 @@
 package com.ljt.study.controller;
 
-import com.ljt.study.cloud.mapper.UserMapper;
-import com.ljt.study.cloud.model.User;
-import com.ljt.study.cloud.service.TccService;
 import com.ljt.study.mapper.UserMapper;
 import com.ljt.study.model.User;
 import com.ljt.study.service.TccService;
