@@ -26,7 +26,7 @@ public class TccServiceImpl implements TccService {
 
     @Override
     public boolean rpcMethodRollback(BusinessActionContext actionContext) {
-        log.info("cancel 逻辑：{}", actionContext.getActionContext());
+        log.info("rollback 逻辑：{}", actionContext.getActionContext());
         return true;
     }
 

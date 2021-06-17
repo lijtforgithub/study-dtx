@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
  * @date 2021-06-11 15:15
  */
 @Configuration
-@MapperScan("com.ljt.study.cloud.mapper")
+@MapperScan("com.ljt.study.mapper")
 public class MainConfig {
 
     @Bean
