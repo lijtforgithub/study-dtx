@@ -6,14 +6,15 @@ import com.ljt.study.service.TccService;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.SneakyThrows;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author LiJingTang
@@ -43,6 +44,18 @@ public class UserController {
 
         Assert.isTrue(!"at1".equalsIgnoreCase(name1), "分布式事务Seata-AT测试：" + appName);
 
+        return user;
+    }
+
+    @SneakyThrows
+    @PutMapping("/at/{id}")
+    @GlobalTransactional
+    public User at(@PathVariable Integer id, String name1, String name2) {
+        User user = new User().setId(id).setName(StringUtils.defaultIfBlank(name1, appName));
+        userMapper.updateById(user);
+        // 如果这个过程中 数据被其他事务修改 则回滚失败
+        TimeUnit.SECONDS.sleep(30);
+        rpcTwo(ModeEnum.AT, name2);
         return user;
     }
 
