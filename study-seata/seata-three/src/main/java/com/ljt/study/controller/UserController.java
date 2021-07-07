@@ -1,7 +1,7 @@
 package com.ljt.study.controller;
 
 import com.ljt.study.mapper.UserMapper;
-import com.ljt.study.model.User;
+import com.ljt.study.tx.model.User;
 import com.ljt.study.service.TccService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

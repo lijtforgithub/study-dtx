@@ -4,7 +4,7 @@ import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.codingapi.txlcn.tc.annotation.TccTransaction;
 import com.codingapi.txlcn.tc.core.DTXLocalContext;
 import com.ljt.study.mapper.UserMapper;
-import com.ljt.study.model.User;
+import com.ljt.study.tx.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
