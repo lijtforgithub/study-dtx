@@ -1,4 +1,4 @@
-package com.ljt.study.tx.model;
+package com.ljt.study.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
